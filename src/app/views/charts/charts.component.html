@@ -1,0 +1,194 @@
+
+<ngx-spinner type="ball-beat" bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-beat" [fullScreen] = "true"><p style="color: white" > Loading...</ngx-spinner>
+<nav class="navbar navbar-light bg-danger">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+     <h2> User App</h2>
+    </a>
+    <!-- <ngx-spinner type="ball-beat" bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-beat" [fullScreen] = "true"><p style="color: white" > Loading...</ngx-spinner> -->
+    
+
+    <button (click)="onclickAdd()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Add User
+    </button>
+  </div>
+</nav>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" >SR</th>
+      <th scope="col" >First Name</th>
+      <th scope="col" >Last Name</th>
+      <th scope="col" >Email</th>
+      <th scope="col">age</th>
+      <th scope="col" >Profession</th>
+      <th scope="col" >Salary</th>
+      <th scope="col" >action</th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr *ngFor="let row of userdata">
+      <td>{{row.id}}</td>
+      <td>{{row.firstname}}</td>
+      <td>{{row.lastname}}</td>
+      <td>{{row.email}}</td>
+      <td>{{row.age}}</td>
+      <td>{{row.profession}}</td>
+      <td>{{row.salary}}</td>
+        <td><button (click)="onEdit(row)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">edit</button>
+        <button class="btn btn-danger mx-3" (click)="deleteuserdetail(row)">delete</button></td> 
+    </tr>  
+  </tbody> 
+</table>
+
+  <!-- <mat-paginator [length]="100"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  aria-label="Select page">
+</mat-paginator> -->
+<!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator> -->
+  
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+      <form [formGroup]="registerform" > 
+  
+                      <div class="form-row d-flex">
+                         
+                          <div class="form-group px-md-2 col-md-5.5">
+                       <label for="name" >First name<span class="required">*</span></label>&nbsp;
+                       <input name="product" class="form-control" placeholder="enter first name" formControlName="firstname" >
+                          <span class="text-danger"
+                         *ngIf="registerform.controls['firstname'].dirty && registerform.hasError('required','firstname')" class="text-danger">This is required field
+                        </span>                          
+                          </div>
+                  
+                
+                      <div class="form-group px-md-2 col-md-5.5">
+                       <label for="last_name">Last Name <span class="required">*</span></label>
+                       <input type="text" placeholder="enter last name" class="form-control" formControlName="lastname">
+                       <span class="text-danger"
+                       *ngIf="registerform.controls['lastname'].dirty && registerform.hasError('required','lastname')" class="text-danger">This is required field
+                  </span>
+                      </div>
+                      </div>
+                       
+                      <div class="form-row px-md-2 d-flex">
+                        
+                          <div class="form-group col-md-5.5">
+                          <label for="Age">Age<span class="required">*</span></label>
+                          <input type="text" placeholder="enter your age" class="form-control" formControlName="age">
+                          <!-- <span class="text-danger"
+                          *ngIf="registerform.controls['age'].dirty && registerform.hasError('required','age')" class="text-danger">this is required field
+                     </span> -->
+                     
+                      <div class="text-danger" *ngIf="registerform.controls['age'].invalid && registerform.controls['age'].dirty" class="error-message" class="text-danger">
+                      Only numbers are allowed.
+                      </div>  
+                          </div>
+                           
+                          <div class="form-group px-md-4 col-md-5.5">
+                          <label for="email">E-mail<span class="required">*</span></label>
+                          <input type="text" placeholder="enter your mail" class="form-control" formControlName="email">
+                          <span class="text-danger"
+                         *ngIf="registerform.controls['email'].dirty && registerform.hasError('required','email')" class="text-danger">This is required field
+                    </span>
+                      </div>
+                      </div>
+      
+                      
+                      <!-- <div class="row d-flex" style="margin-left: 15px;"> -->
+                          <div class="form-col px-md-2 d-flex">
+                            
+                            <div class="form-group col-md-5.5">
+                              <label for="Proffesion">Profession<span class="required">*</span></label>
+                              <input type="text" placeholder="enter your profession" class="form-control" formControlName="profession">
+                              <span class="text-danger"
+                              *ngIf="registerform.controls['profession'].dirty && registerform.hasError('required','profession')" class="text-danger">This is required field
+                         </span>
+
+                          </div>
+                          
+                      <div class="form-group px-md-4 col-md-5.5">
+                  <label for="salary">Salary<span class="required">*</span></label>
+                  <input class="form-control"  formControlName="salary" placeholder="enter your salary">
+                  <!-- <span class="text-danger"
+                  *ngIf="registerform.controls['salary'].dirty && registerform.hasError('required','salary')" class="text-danger">this is required field
+             </span> -->
+             <div class="text-danger" *ngIf="registerform.controls['salary'].invalid && registerform.controls['salary'].dirty" class="error-message" class="text-danger">
+              Only numbers are allowed.
+              </div>  
+                           </div>
+                           </div>
+                          <!-- <div formArrayName="address" *ngFor="let add of addcontrol.controls; let i=index">
+                               <div [formGroupName]="i">
+                                  <label for="address">Address</label><br>
+                                 <input type="text" class="form-control-file" placeholder="Add Address" formControlName="address" ><br>
+                               <br>
+                               <button  class='btn-info' (click)="addmoreadd()">Add Address</button> 
+                  
+                              </div>
+                          </div> -->
+
+                          <div class="form-row px-md-2 d-flex">
+                          <div class="form-group col-md-5.5">
+                          <ng-container formArrayName="address">
+                            <ng-container *ngFor="let add of address.controls; let i = index">
+                                <div  [formGroup]="addressForm">
+                                   <label for="Address">Address<span class="required">*</span></label>
+                                       &nbsp;&nbsp; <input placeholder="enter address" class="form-control" formControlName="address">
+                                        <!-- <span class="text-danger"
+                                         *ngIf="add.controls['address'].dirty && add.hasError('required','address')" class="text-danger">This is required field
+                                          </span>  -->
+                                          <!-- <ng-container *ngIf="registerform.get('address')?.hasError('required','address')">
+                                            <span class="errorMsg">This is required</span>
+                                          </ng-container> -->
+                                            <p *ngIf="addressForm?.get('address')?.dirty && addressForm?.hasError('required','address')" class="text-danger">This is required field</p> 
+                                          <!-- <p *ngIf="add?.get('address')?.dirty && add?.get('address')?.hasError('required')" class="text-danger">This is a required field</p> -->
+                                                <button type="button" class="close" aria-label="Close"  (click)="deleteaddress(i)" *ngIf="i!=0">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                       </div>
+                                 </ng-container>
+                              </ng-container>
+                              </div>
+                              </div>
+                      <!-- <button  id="boot-icon" class="bi bi-trash" style="font-size:10rem" (click)="addaddress()"> -->      
+                                                                                                                                                                                                                                  &nbsp;&nbsp; 
+                    <div class="form-group col-md-5.5">
+                    &nbsp;&nbsp; <button type="button" class="btn btn-primary" (click)="addaddress()"><span class="bi bi-plus" ></span> Add Address</button>
+                        </div>
+
+                             
+
+
+                      <!-- <div class="form-group col-md-6"  formArrayName="Address" >
+                             
+                          <div *ngFor="let doc of doccontrol.controls; let i=index">
+                              <label for="Address">Address</label>
+                              <input type="text" class="form-control-file" placeholder="Add Document" [formControlName]="i"><br>
+                          </div><br>
+                           <button  class='btn-info' (click)="addmoredoc()">Add Document</button>
+                  </div> -->
+
+                      
+                      
+              
+              <div class="modal-footer" id="foot">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button *ngIf="showAdd" type="button" class="btn btn-primary" (click)="postuserdetail()" [disabled]="!registerform.valid">Add</button>
+                <button *ngIf="showUpdate" type="button" class="btn btn-primary" (click)="updateuserDetails()"[disabled]="!registerform.valid">Edit</button>
+              </div>
+       </form> 
+      
+    
+     

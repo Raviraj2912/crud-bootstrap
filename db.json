@@ -1,0 +1,90 @@
+{
+  "posts": [
+    {
+      "id": 10,
+      "firstname": "RAVI",
+      "lastname": "RAJ SINGH CHOUHAN",
+      "email": "chouhanraviraj67@gmail.com",
+      "address": "",
+      "age": "28",
+      "profession": "dev",
+      "salary": "75002"
+    },
+    {
+      "id": 12,
+      "firstname": "RAVI",
+      "lastname": "RAJ SINGH CHOUHAN",
+      "email": "chouhanraviraj67@gmail.com",
+      "address": [
+        null
+      ],
+      "age": "25",
+      "profession": "dev",
+      "salary": "23654"
+    },
+    {
+      "id": 13,
+      "firstname": "RAVI",
+      "lastname": "RAJ SINGH CHOUHAN",
+      "email": "chouhanraviraj67@gmail.com",
+      "address": [
+        null
+      ],
+      "age": "26",
+      "profession": "devc",
+      "salary": "6589"
+    },
+    {
+      "id": 14,
+      "firstname": "RAVI",
+      "lastname": "RAJ SINGH CHOUHAN",
+      "email": "chouhanraviraj67@gmail.com",
+      "address": [
+        null
+      ],
+      "age": "25",
+      "profession": "dev",
+      "salary": "25466"
+    },
+    {
+      "id": 15,
+      "firstname": "RAVI",
+      "lastname": "RAJ SINGH CHOUHAN",
+      "email": "chouhanraviraj67@gmail.com",
+      "address": [
+        null
+      ],
+      "age": "23",
+      "profession": "dev",
+      "salary": "32111"
+    },
+    {
+      "id": 16,
+      "firstname": "RAVI",
+      "lastname": "RAJ SINGH CHOUHAN",
+      "email": "chouhanraviraj67@gmail.com",
+      "address": [
+        null
+      ],
+      "age": "25",
+      "profession": "dev",
+      "salary": "2588"
+    },
+    {
+      "id": 17,
+      "firstname": "RAVI",
+      "lastname": "RAJ SINGH CHOUHAN",
+      "email": "chouhanraviraj67@gmail.com",
+      "address": [
+        null
+      ],
+      "age": "25",
+      "profession": "dev",
+      "salary": "254"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
